@@ -39,7 +39,7 @@ import org.apache.seatunnel.app.utils.JobUtils;
 import org.apache.seatunnel.app.utils.ServletUtils;
 import org.apache.seatunnel.common.constants.JobMode;
 import org.apache.seatunnel.common.utils.JsonUtils;
-import org.apache.seatunnel.engine.core.job.JobStatus;
+import org.apache.seatunnel.engine.common.job.JobStatus;
 import org.apache.seatunnel.server.common.CodeGenerateUtils;
 import org.apache.seatunnel.server.common.Constants;
 import org.apache.seatunnel.server.common.SeatunnelErrorEnum;

@@ -18,7 +18,7 @@ package org.apache.seatunnel.app.thirdparty.metrics;
 
 import org.apache.seatunnel.app.dal.entity.JobInstanceHistory;
 import org.apache.seatunnel.app.dal.entity.JobMetrics;
-import org.apache.seatunnel.engine.core.job.JobStatus;
+import org.apache.seatunnel.engine.common.job.JobStatus;
 
 import lombok.NonNull;
 

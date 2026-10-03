@@ -21,7 +21,7 @@ import org.apache.seatunnel.app.dal.entity.JobLine;
 import org.apache.seatunnel.app.dal.entity.JobTask;
 import org.apache.seatunnel.app.domain.request.job.JobExecParam;
 import org.apache.seatunnel.app.domain.response.executor.JobExecutorRes;
-import org.apache.seatunnel.engine.core.job.JobResult;
+import org.apache.seatunnel.engine.common.job.JobResult;
 
 import lombok.NonNull;
 

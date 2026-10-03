@@ -30,10 +30,12 @@ public class PageInfo<T> {
     private Integer totalPage = 0;
     private Integer pageNo = 1;
     private Integer pageSize = 20;
+
     /** current page */
     private Integer currentPage = 0;
 
-    public PageInfo() {};
+    public PageInfo() {}
+    ;
 
     public PageInfo(Integer currentPage, Integer pageSize) {
         if (currentPage == null) {

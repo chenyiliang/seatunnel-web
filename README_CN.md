@@ -40,18 +40,18 @@ SeaTunnel是下一代超高性能、分布式、海量数据集成工具。它�
 **此处使用的SeaTunnel版本仅用于编写本文档以向您展示所使用的过程，并不一定代表正确的版本。SeaTunnel Web和SeaTunnel Engine有严格的版本依赖关系，您可以通过确认具体的版本对应关系。现在只支持在本地构建SeaTunnel Web和SeaTunnel Zeta Engine，因为有必要确保SeaTunnel Web中的SeaTunnel-api与SeaTunnel Zeta Engine中的版本相同**
 ##### 2.1.1 从源代码构建和部署
 * 从 https://seatunnel.apache.org/download 或 https://github.com/apache/seatunnel.git 获取源包
-* 请按照 [从源码构建 SeaTunnel 来构建 SeaTunnel](https://seatunnel.apache.org/zh-CN/docs/start-v2/locally/deployment/#从源码构建seatunnel)。
+* 请按照 [从源码构建 SeaTunnel 来构建 SeaTunnel](https://seatunnel.apache.org/zh-CN/docs/getting-started/locally/deployment/#从源码构建seatunnel)。
 * 在构建之后，需要设置一个环境变量`ST_WEB_BASEDIR_PATH`来表示数据源shade包的位置。将使用自定义类加载器来基于此加载数据源shade包。例如:`ST_WEB_BASEDIR_PATH=/seatunnel-web-dist/target/apache-seatunnel-web-1.0.3-SNAPSHOT/`
-然后你可以在`${Your_code_dir}/seatunnel-dist/target`下获取安装包，例如:`apache-seatunnel-2.3.11-bin.tar.gz`。
-* 执行`tar -zxvf apache-seatunnel-2.3.11-bin.tar.gz`解压安装包。
-* 运行`cd apache-seatunnel-2.3.11 & sh bin/seatunnel-cluster.sh -d`运行SeaTunnel Zeta Engine Server。
+然后你可以在`${Your_code_dir}/seatunnel-dist/target`下获取安装包，例如:`apache-seatunnel-2.3.13-bin.tar.gz`。
+* 执行`tar -zxvf apache-seatunnel-2.3.13-bin.tar.gz`解压安装包。
+* 运行`cd apache-seatunnel-2.3.13 & sh bin/seatunnel-cluster.sh -d`运行SeaTunnel Zeta Engine Server。
 * SeaTunnel Zeta Engine Server默认占用5801端口，请确认端口5801正在被SeaTunnelServer进程占用。
 
 ##### 2.1.2 下载安装程序包并进行部署
 下载安装包并部署SeaTunnel Zeta Engine Server的另一种安装方式是从 https://seatunnel.apache.org/download 下载安装包并部署。
 
-* 下载并安装连接器插件(一些第三方依赖包也会在此过程中自动下载并安装，如Hadoop jar)。您可以从 https://seatunnel.apache.org/docs/2.3.11/start-v2/locally/deployment 获得该步骤。
-* 运行`cd apache-seatunnel-2.3.11 & sh bin/seatunnel-cluster.sh -d`运行SeaTunnel Zeta Engine Server。
+* 下载并安装连接器插件(一些第三方依赖包也会在此过程中自动下载并安装，如Hadoop jar)。您可以从 https://seatunnel.apache.org/docs/2.3.13/getting-started/locally/deployment 获得该步骤。
+* 运行`cd apache-seatunnel-2.3.13 & sh bin/seatunnel-cluster.sh -d`运行SeaTunnel Zeta Engine Server。
 #### 2.2 初始化数据库
 
 1. 编辑 `seatunnel-server/seatunnel-app/src/main/resources/script/seatunnel_server_env.sh` 文件, 填写已安装的数据库 address, port, username, and password. 下面是一个例子:
@@ -77,7 +77,7 @@ sh build.sh code
 ![img.png](docs/images/application_config.png)
 
 2. 编辑 `seatunnel-server/seatunnel-app/src/main/resources/application.yml` 添加 `jwt.secretKey` 值. 例如: `https://github.com/apache/seatunnel` (注意: 不能太短).
-3. 复制 `apache-seatunnel-2.3.11/connectors/plugin-mapping.properties` 文件 到 `seatunnel-web/seatunnel-server/seatunnel-app/src/main/resources` 目录.
+3. 复制 `apache-seatunnel-2.3.13/connectors/plugin-mapping.properties` 文件 到 `seatunnel-web/seatunnel-server/seatunnel-app/src/main/resources` 目录.
 4. 运行 `seatunnel-server/seatunnel-app/src/main/java/org/apache/seatunnel/app/SeatunnelApplication.java` 如果没有报错，说明seatunnel web后端服务启动成功。注意，你必须设置 `-DSEATUNNEL_HOME=${your_seatunnel_install_path}` 像这样:
 
 ![img.png](docs/images/idea_st_home.png)
@@ -118,25 +118,25 @@ npm run dev
 ##### 3.1.1 从源码编译
 * 从 https://seatunnel.apache.org/download 或 https://github.com/apache/seatunnel.git 获取源码包
 * 使用maven命令编译安装包 `./mvnw -U -T 1C clean install -DskipTests -D"maven.test.skip"=true -D"maven.javadoc.skip"=true -D"checkstyle.skip"=true -D"license.skipAddThirdParty" `
-* 然后您可以在`${您的代码目录}/seatunnel-dist/target`中获得安装包,例如:`apache-seatunnel-2.3.11-bin.tar.gz`
+* 然后您可以在`${您的代码目录}/seatunnel-dist/target`中获得安装包,例如:`apache-seatunnel-2.3.13-bin.tar.gz`
 
 ##### 3.1.2 下载安装包
 获取 SeaTunnel Zeta 引擎服务安装包的另一种方式是从 https://seatunnel.apache.org/download 下载安装包并在线安装插件。
 
-* 下载并安装连接器插件(这个过程中也会自动下载和安装一些第三方依赖包,比如 hadoop jar)。您可以参考 https://seatunnel.apache.org/docs/2.3.11/start-v2/locally/deployment 获取详细步骤。
-* 完成上述步骤后,您将获得一个可以用于在服务器上安装 SeaTunnel Zeta 引擎服务的安装包。运行 `tar -zcvf apache-seatunnel-2.3.11-bin.tar.gz apache-seatunnel-2.3.11`
+* 下载并安装连接器插件(这个过程中也会自动下载和安装一些第三方依赖包,比如 hadoop jar)。您可以参考 https://seatunnel.apache.org/docs/2.3.13/getting-started/locally/deployment 获取详细步骤。
+* 完成上述步骤后,您将获得一个可以用于在服务器上安装 SeaTunnel Zeta 引擎服务的安装包。运行 `tar -zcvf apache-seatunnel-2.3.13-bin.tar.gz apache-seatunnel-2.3.13`
 
 ##### 3.1.3 部署 SeaTunnel Zeta 服务端
 
-在完成 3.1.1 或 3.1.2 后您可以获得一个安装包 `apache-seatunnel-2.3.11-bin.tar.gz`,然后您可以将其复制到服务器节点并参考 https://seatunnel.apache.org/docs/seatunnel-engine/deployment 进行部署。
+在完成 3.1.1 或 3.1.2 后您可以获得一个安装包 `apache-seatunnel-2.3.13-bin.tar.gz`,然后您可以将其复制到服务器节点并参考 https://seatunnel.apache.org/docs/engines/zeta/deployment 进行部署。
 
 ##### 3.1.4 在 SeaTunnel Web 运行节点部署 SeaTunnel Zeta 客户端
 
 如果您使用 SeaTunnel Web,您需要在 SeaTunnel Web 运行节点部署一个 SeaTunnel Zeta 客户端。**如果 SeaTunnel Zeta 服务端和 SeaTunnel Web 在同一节点,您可以跳过此步骤**。
 
-* 将 `apache-seatunnel-2.3.11-bin.tar.gz` 复制到 SeaTunnel Web 节点并解压,解压**到与 SeaTunnel Zeta 服务端节点相同的路径下**。
+* 将 `apache-seatunnel-2.3.13-bin.tar.gz` 复制到 SeaTunnel Web 节点并解压,解压**到与 SeaTunnel Zeta 服务端节点相同的路径下**。
 * 和 SeaTunnel Zeta 服务端节点相同,设置 `SEATUNNEL_HOME` 环境变量。
-* 参考 https://seatunnel.apache.org/docs/seatunnel-engine/deployment#6-config-seatunnel-engine-client 配置 `hazelcast-client.yaml`。
+* 参考 https://seatunnel.apache.org/docs/engines/zeta/hybrid-cluster-deployment#6-configure-the-seatunnel-engine-client 配置 `hazelcast-client.yaml`。
 * 运行 `$SEATUNNEL_HOME/bin/seatunnel.sh --config $SEATUNNEL_HOME/config/v2.batch.config.template`,如果该作业运行结束,表示客户端部署成功。
 
 #### 3.2 从源码构建 SeaTunnel Web 安装包
@@ -176,7 +176,7 @@ tar -zxvf apache-seatunnel-web-${project.version}.tar.gz
 ![image](docs/images/application_config.png)
 
 * 复制 `$SEATUNNEL_HOME/config/hazelcast-client.yaml` 到 `apache-seatunnel-web-${project.version}/conf/`
-* 复制 `apache-seatunnel-2.3.11/connectors/plugin-mapping.properties` 文件到 `apache-seatunnel-web-${project.version}/conf/` 目录.
+* 复制 `apache-seatunnel-2.3.13/connectors/plugin-mapping.properties` 文件到 `apache-seatunnel-web-${project.version}/conf/` 目录.
 
 #### 3.6 运行 SeaTunnel Web
 

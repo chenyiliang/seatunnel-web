@@ -26,6 +26,7 @@ import java.util.Objects;
 public class Property implements Serializable {
 
     private static final long serialVersionUID = -4045513703397452451L;
+
     /** key */
     private String prop;
 

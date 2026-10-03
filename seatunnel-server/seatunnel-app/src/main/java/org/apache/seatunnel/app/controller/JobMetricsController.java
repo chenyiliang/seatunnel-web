@@ -40,7 +40,9 @@ import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.List;
 
-/** @Description @ClassName JobMetricsController @Author zhang @Date 2023/7/6 18:30 */
+/**
+ * @Description @ClassName JobMetricsController @Author zhang @Date 2023/7/6 18:30
+ */
 @RequestMapping("/seatunnel/api/v1/job/metrics")
 @RestController
 public class JobMetricsController {

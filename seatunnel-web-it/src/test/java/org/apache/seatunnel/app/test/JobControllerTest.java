@@ -31,7 +31,7 @@ import org.apache.seatunnel.app.domain.response.metrics.JobPipelineDetailMetrics
 import org.apache.seatunnel.app.utils.JobTestingUtils;
 import org.apache.seatunnel.common.constants.JobMode;
 import org.apache.seatunnel.common.constants.PluginType;
-import org.apache.seatunnel.engine.core.job.JobStatus;
+import org.apache.seatunnel.engine.common.job.JobStatus;
 import org.apache.seatunnel.server.common.SeatunnelErrorEnum;
 
 import org.junit.jupiter.api.AfterAll;

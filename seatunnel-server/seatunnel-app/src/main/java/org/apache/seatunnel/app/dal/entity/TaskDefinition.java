@@ -141,6 +141,7 @@ public class TaskDefinition {
 
     /** task group id */
     private int taskGroupId;
+
     /** task group id */
     private int taskGroupPriority;
 

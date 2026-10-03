@@ -72,6 +72,7 @@ public class JSONTestUtils {
                     .defaultDateFormat(new SimpleDateFormat(Constants.YYYY_MM_DD_HH_MM_SS))
                     .defaultPrettyPrinter(new DefaultPrettyPrinter())
                     .build();
+
     /* can use static singleton, inject: just make sure to reuse! */
     static {
         SimpleModule module = new SimpleModule();

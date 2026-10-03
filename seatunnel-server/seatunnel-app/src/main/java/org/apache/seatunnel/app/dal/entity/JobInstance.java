@@ -19,7 +19,7 @@ package org.apache.seatunnel.app.dal.entity;
 
 import org.apache.seatunnel.app.common.EngineType;
 import org.apache.seatunnel.common.constants.JobMode;
-import org.apache.seatunnel.engine.core.job.JobStatus;
+import org.apache.seatunnel.engine.common.job.JobStatus;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

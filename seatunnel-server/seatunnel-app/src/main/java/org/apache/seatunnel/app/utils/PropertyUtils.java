@@ -91,7 +91,9 @@ public class PropertyUtils {
         }
     }
 
-    /** @return judge whether resource upload startup */
+    /**
+     * @return judge whether resource upload startup
+     */
     public static boolean getResUploadStartupState() {
         String resUploadStartupType =
                 PropertyUtils.getUpperCaseString(Constants.RESOURCE_STORAGE_TYPE);

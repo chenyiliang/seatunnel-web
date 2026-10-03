@@ -106,6 +106,7 @@ public final class Constants {
     public static final String RESOURCE_STORAGE_TYPE = "resource.storage.type";
 
     public static final String AWS_END_POINT = "aws.endpoint";
+
     /** comma , */
     public static final String COMMA = ",";
 
@@ -144,6 +145,7 @@ public final class Constants {
 
     /** date format of yyyyMMddHHmmssSSS */
     public static final String YYYYMMDDHHMMSSSSS = "yyyyMMddHHmmssSSS";
+
     /** http connect time out */
     public static final int HTTP_CONNECT_TIMEOUT = 60 * 1000;
 
@@ -348,36 +350,51 @@ public final class Constants {
 
     /** SUCCEEDED */
     public static final String SUCCEEDED = "SUCCEEDED";
+
     /** ENDED */
     public static final String ENDED = "ENDED";
+
     /** NEW */
     public static final String NEW = "NEW";
+
     /** NEW_SAVING */
     public static final String NEW_SAVING = "NEW_SAVING";
+
     /** SUBMITTED */
     public static final String SUBMITTED = "SUBMITTED";
+
     /** FAILED */
     public static final String FAILED = "FAILED";
+
     /** KILLED */
     public static final String KILLED = "KILLED";
+
     /** RUNNING */
     public static final String RUNNING = "RUNNING";
+
     /** underline "_" */
     public static final String UNDERLINE = "_";
+
     /** application regex */
     public static final String APPLICATION_REGEX = "application_\\d+_\\d+";
 
     public static final String PID = SystemUtils.IS_OS_WINDOWS ? "handle" : "pid";
+
     /** month_begin */
     public static final String MONTH_BEGIN = "month_begin";
+
     /** add_months */
     public static final String ADD_MONTHS = "add_months";
+
     /** month_end */
     public static final String MONTH_END = "month_end";
+
     /** week_begin */
     public static final String WEEK_BEGIN = "week_begin";
+
     /** week_end */
     public static final String WEEK_END = "week_end";
+
     /** timestamp */
     public static final String TIMESTAMP = "timestamp";
 
@@ -529,8 +546,10 @@ public final class Constants {
 
     /** default worker group */
     public static final String DEFAULT_WORKER_GROUP = "default";
+
     /** authorize writable perm */
     public static final int AUTHORIZE_WRITABLE_PERM = 7;
+
     /** authorize readable perm */
     public static final int AUTHORIZE_READABLE_PERM = 4;
 

@@ -32,7 +32,9 @@ public class DataSourcePluginInfo {
 
     public String version;
 
-    /** @see DatasourcePluginTypeEnum */
+    /**
+     * @see DatasourcePluginTypeEnum
+     */
     private Integer type;
 
     /** whether support virtual tables, default false */

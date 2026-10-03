@@ -71,7 +71,7 @@ import org.apache.seatunnel.common.access.ResourceType;
 import org.apache.seatunnel.common.constants.PluginType;
 import org.apache.seatunnel.common.utils.ExceptionUtils;
 import org.apache.seatunnel.common.utils.JsonUtils;
-import org.apache.seatunnel.engine.core.job.JobResult;
+import org.apache.seatunnel.engine.common.job.JobResult;
 import org.apache.seatunnel.server.common.CodeGenerateUtils;
 import org.apache.seatunnel.server.common.SeatunnelErrorEnum;
 import org.apache.seatunnel.server.common.SeatunnelException;

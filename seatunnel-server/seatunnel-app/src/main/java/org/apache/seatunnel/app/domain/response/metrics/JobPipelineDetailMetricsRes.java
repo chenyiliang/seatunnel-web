@@ -16,7 +16,7 @@
  */
 package org.apache.seatunnel.app.domain.response.metrics;
 
-import org.apache.seatunnel.engine.core.job.JobStatus;
+import org.apache.seatunnel.engine.common.job.JobStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

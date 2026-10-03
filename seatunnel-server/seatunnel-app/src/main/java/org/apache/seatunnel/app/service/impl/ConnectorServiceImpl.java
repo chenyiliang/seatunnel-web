@@ -303,8 +303,10 @@ public class ConnectorServiceImpl extends SeatunnelBaseServiceImpl implements IC
     private List<DataSourceInstance> getDataSourcesInstance(DataSourceInfo dataSourceInfo) {
 
         // dataSourceName DataSourceInstance
-        return datasourceService.queryDatasourceNameByPluginName(dataSourceInfo.getDatasourceName())
-                .entrySet().stream()
+        return datasourceService
+                .queryDatasourceNameByPluginName(dataSourceInfo.getDatasourceName())
+                .entrySet()
+                .stream()
                 .map(
                         en -> {
                             return new DataSourceInstance(
