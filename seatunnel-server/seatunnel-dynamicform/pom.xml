@@ -40,8 +40,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.seatunnel</groupId>
-            <artifactId>seatunnel-jackson</artifactId>
-            <classifier>optional</classifier>
+            <artifactId>seatunnel-shade-jackson</artifactId>
         </dependency>
     </dependencies>
 </project>

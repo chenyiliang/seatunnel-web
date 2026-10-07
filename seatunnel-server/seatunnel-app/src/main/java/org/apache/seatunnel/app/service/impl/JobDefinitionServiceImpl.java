@@ -97,7 +97,7 @@ public class JobDefinitionServiceImpl extends SeatunnelBaseServiceImpl
                 .name(DEFAULT_VERSION)
                 .id(uuid)
                 .engineName(EngineType.SeaTunnel)
-                .engineVersion("2.3.13");
+                .engineVersion("3.0.0");
         if (BusinessMode.DATA_INTEGRATION.equals(jobReq.getJobType())) {
             builder.jobMode(JobMode.BATCH);
         } else if (BusinessMode.DATA_REPLICA.equals(jobReq.getJobType())) {

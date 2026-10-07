@@ -81,6 +81,12 @@ public class SeaTunnelOptionRuleWrapper {
         List<AbstractFormOption> requiredFormOptions =
                 wrapperRequiredOptions(name, requiredList, locale);
 
+        // An option key may be declared both as required (exclusive/bundled/conditional) and as
+        // optional, which the engine tolerates since it collects declared keys into a Set. A form
+        // allows each field only once, so keep the required item: it carries the stronger
+        // validation semantics (mutually-exclusive / conditional-show / non-empty).
+        optionFormOptions = withoutFieldsOf(optionFormOptions, requiredFormOptions);
+
         FormStructureBuilder formStructureBuilder = FormStructure.builder().name(name);
 
         if (!CollectionUtils.isEmpty(requiredFormOptions)) {
@@ -96,6 +102,19 @@ public class SeaTunnelOptionRuleWrapper {
         formStructureBuilder.withLocale(locale);
 
         return FormOptionSort.sortFormStructure(formStructureBuilder.build());
+    }
+
+    private static List<AbstractFormOption> withoutFieldsOf(
+            @NonNull List<AbstractFormOption> candidates,
+            @NonNull List<AbstractFormOption> alreadyAdded) {
+        if (CollectionUtils.isEmpty(alreadyAdded)) {
+            return candidates;
+        }
+        Set<String> takenFields =
+                alreadyAdded.stream().map(AbstractFormOption::getField).collect(Collectors.toSet());
+        return candidates.stream()
+                .filter(candidate -> !takenFields.contains(candidate.getField()))
+                .collect(Collectors.toList());
     }
 
     private static String getDefaultValue(Option<?> option) {

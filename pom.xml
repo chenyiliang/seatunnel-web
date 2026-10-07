@@ -42,7 +42,7 @@
     </modules>
 
     <properties>
-        <revision>1.0.3-SNAPSHOT</revision>
+        <revision>3.0.0-teaboy-SNAPSHOT</revision>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <java.version>1.8</java.version>
@@ -74,7 +74,15 @@
         <guava.version>33.2.1-jre</guava.version>
         <checker.qual.version>3.10.0</checker.qual.version>
         <awaitility.version>4.2.0</awaitility.version>
-        <seatunnel-framework.version>2.3.13</seatunnel-framework.version>
+        <seatunnel-framework.version>3.0.0</seatunnel-framework.version>
+        <!--
+            SeaTunnel 3.0.0 moved the seatunnel-shade modules out of the main repository and
+            published them as external Maven artifacts. Their versions no longer follow
+            ${seatunnel-framework.version}; they use ${libraryVersion}-${seatunnel.shade.version}.
+        -->
+        <seatunnel.shade.version>3.0.0</seatunnel.shade.version>
+        <seatunnel.shade.jackson.version>2.15.4</seatunnel.shade.jackson.version>
+        <seatunnel.shade.hadoop.version>3.1.4</seatunnel.shade.hadoop.version>
         <oracle-jdbc.version>21.5.0.0</oracle-jdbc.version>
         <postgresql.version>42.4.3</postgresql.version>
         <sqlserver.version>9.2.1.jre8</sqlserver.version>
@@ -271,9 +279,8 @@
 
             <dependency>
                 <groupId>org.apache.seatunnel</groupId>
-                <artifactId>seatunnel-jackson</artifactId>
-                <version>${seatunnel-framework.version}</version>
-                <classifier>optional</classifier>
+                <artifactId>seatunnel-shade-jackson</artifactId>
+                <version>${seatunnel.shade.jackson.version}-${seatunnel.shade.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -499,8 +506,8 @@
 
             <dependency>
                 <groupId>org.apache.seatunnel</groupId>
-                <artifactId>seatunnel-hadoop3-3.1.4-uber</artifactId>
-                <version>${seatunnel-framework.version}</version>
+                <artifactId>seatunnel-shade-hadoop3-uber</artifactId>
+                <version>${seatunnel.shade.hadoop.version}-${seatunnel.shade.version}</version>
                 <scope>provided</scope>
                 <exclusions>
                     <exclusion>
@@ -803,7 +810,7 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.seatunnel</groupId>
-                <artifactId>connector-file-oss-jindo</artifactId>
+                <artifactId>connector-file-jindo-oss</artifactId>
                 <version>${seatunnel-framework.version}</version>
                 <scope>test</scope>
                 <exclusions>

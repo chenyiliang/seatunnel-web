@@ -1,8 +1,8 @@
 # SeaTunnel Web 打包与部署文档
 
-> 适用分支：`2.3.13-teaboy`（适配 SeaTunnel **2.3.13**）
-> 产物版本：`apache-seatunnel-web-1.0.3-SNAPSHOT`
-> 文档中所有命令、产物大小、文件数量均为实际执行验证过的结果。
+> 适用分支：`3.0.0-teaboy`（适配 SeaTunnel **3.0.0**）
+> 产物版本：`apache-seatunnel-web-3.0.0-teaboy-SNAPSHOT`
+> 文档中所有命令、产物大小、文件数量均为实际执行验证过的结果（3.0.0 下于 2026-10-06 重新打包实测）。
 
 ## 一、环境要求
 
@@ -127,19 +127,19 @@ build.cmd code          # Windows
 
 打包成功后，产物位于 `seatunnel-web-dist/target/`：
 
-|                      文件                      |    大小    |
-|----------------------------------------------|----------|
-| `apache-seatunnel-web-1.0.3-SNAPSHOT.tar.gz` | 394.1 MB |
-| `apache-seatunnel-web-1.0.3-SNAPSHOT.zip`    | 394.3 MB |
-| `apache-seatunnel-web-1.0.3-SNAPSHOT/`（目录形式） | —        |
+|                         文件                          |    大小    |
+|-----------------------------------------------------|----------|
+| `apache-seatunnel-web-3.0.0-teaboy-SNAPSHOT.tar.gz` | 410.1 MB |
+| `apache-seatunnel-web-3.0.0-teaboy-SNAPSHOT.zip`    | 410.2 MB |
+| `apache-seatunnel-web-3.0.0-teaboy-SNAPSHOT/`（目录形式） | —        |
 
 > 压缩包内含一层同名目录（assembly 配置 `includeBaseDirectory=true`），
-> 解压后进入 `apache-seatunnel-web-1.0.3-SNAPSHOT/` 才是真正的部署根目录。
+> 解压后进入 `apache-seatunnel-web-3.0.0-teaboy-SNAPSHOT/` 才是真正的部署根目录。
 
 ### 3.1 部署包目录结构
 
 ```text
-apache-seatunnel-web-1.0.3-SNAPSHOT/
+apache-seatunnel-web-3.0.0-teaboy-SNAPSHOT/
 ├── bin/            # 启动脚本（2 个文件）
 │   ├── seatunnel-backend-daemon.sh    # 启停脚本
 │   └── download_datasource.sh         # 数据源插件下载脚本
@@ -147,7 +147,7 @@ apache-seatunnel-web-1.0.3-SNAPSHOT/
 │   ├── application.yml
 │   ├── connector-datasource-mapper.yaml
 │   └── logback-spring.xml
-├── libs/           # 后端依赖 jar（158 个文件）
+├── libs/           # 后端依赖 jar（160 个文件）
 ├── datasource/     # 数据源插件 jar（20 个文件）
 ├── script/         # 数据库初始化脚本（4 个文件）
 │   ├── init_sql.sh
@@ -169,32 +169,32 @@ apache-seatunnel-web-1.0.3-SNAPSHOT/
 已验证打包产物中的 SeaTunnel 依赖版本正确：
 
 ```bash
-# libs/ 下的 SeaTunnel 制品应全部为 2.3.13
+# libs/ 下的 SeaTunnel 制品应全部为 3.0.0
 ls libs/ | grep '^seatunnel-'
 ```
 
-预期包含 `seatunnel-api-2.3.13.jar`、`seatunnel-engine-client-2.3.13.jar`、
-`seatunnel-engine-common-2.3.13.jar`、`seatunnel-engine-core-2.3.13.jar`、
-`seatunnel-transforms-v2-2.3.13.jar` 等共 **20 个 2.3.13 制品**，
-且 `find . -name "*2.3.11*"` 结果为 **0**（无旧版本残留）。
+预期包含 `seatunnel-api-3.0.0.jar`、`seatunnel-engine-client-3.0.0.jar`、
+`seatunnel-engine-common-3.0.0.jar`、`seatunnel-engine-core-3.0.0.jar`、
+`seatunnel-transforms-v2-3.0.0.jar` 等共 **20 个 3.0.0 制品**，
+且 `find . -name "*2.3.13*"` 结果为 **0**（无旧版本残留）。
 
-> 注意：`seatunnel-engine-common-2.3.13.jar` 必须存在。
-> SeaTunnel 2.3.13 中 `JobStatus`、`JobResult` 两个类
-> 已从 `engine.core.job` 包迁移到 `engine.common.job` 包，
+> 注意：`seatunnel-engine-common-3.0.0.jar` 必须存在。
+> SeaTunnel 自 2.3.13 起把 `JobStatus`、`JobResult` 两个类
+> 从 `engine.core.job` 迁移到 `engine.common.job` 包，3.0.0 延续此位置，
 > 该 jar 正是它们的新归属。
 
 ## 四、部署步骤
 
 ### 4.1 前置条件
 
-部署机上需先安装好 **SeaTunnel 2.3.13** 服务端（Zeta 引擎），
+部署机上需先安装好 **SeaTunnel 3.0.0** 服务端（Zeta 引擎），
 后续步骤依赖它的安装目录 `SEATUNNEL_HOME`。
 
 ### 4.2 解压部署包
 
 ```bash
-tar -zxvf apache-seatunnel-web-1.0.3-SNAPSHOT.tar.gz
-cd apache-seatunnel-web-1.0.3-SNAPSHOT
+tar -zxvf apache-seatunnel-web-3.0.0-teaboy-SNAPSHOT.tar.gz
+cd apache-seatunnel-web-3.0.0-teaboy-SNAPSHOT
 ```
 
 ### 4.3 初始化数据库
@@ -271,11 +271,11 @@ cp $SEATUNNEL_HOME/connectors/plugin-mapping.properties ./conf/
 任一未设置都会直接退出：
 
 ```bash
-export SEATUNNEL_HOME=/path/to/apache-seatunnel-2.3.13
+export SEATUNNEL_HOME=/path/to/apache-seatunnel-3.0.0
 export JAVA_HOME=/path/to/jdk
 ```
 
-> `SEATUNNEL_HOME` 必须指向 **SeaTunnel 2.3.13** 的安装目录，
+> `SEATUNNEL_HOME` 必须指向 **SeaTunnel 3.0.0** 的安装目录，
 > 且建议部署在与 SeaTunnel Zeta 服务端相同的路径下。
 
 ### 4.7 启动服务
@@ -300,11 +300,16 @@ sh bin/seatunnel-backend-daemon.sh stop     # 停止
 该脚本用于从 Maven 仓库下载数据源插件 jar（默认版本 `1.0.0`）。
 
 **使用 `-Pci` 打包时无需执行**——部署包的 `datasource/` 目录
-已自带 20 个与当前代码同版本（`1.0.3-SNAPSHOT`）的插件 jar。
-仅当需要额外补充其他版本的数据源插件时才使用：
+已自带 20 个与当前代码同版本（`3.0.0-teaboy-SNAPSHOT`）的插件 jar。
+仅当需要额外补充**其他已发布版本**的数据源插件时才使用。
+
+> 注意：该脚本用 `mvnw dependency:get` 从 **Maven Central** 拉取，
+> 只能取到已发布版本（如 `1.0.0`、`1.0.1`、`1.0.2`），
+> **`-SNAPSHOT` 版本不发布到 Central，传进去会 404**。
+> 当前分支的插件已由 `-Pci` 打进 `datasource/`，无需再用本脚本下载。
 
 ```bash
-sh bin/download_datasource.sh 1.0.3-SNAPSHOT
+sh bin/download_datasource.sh 1.0.2   # 示例:补充已发布的 1.0.2 插件
 ```
 
 ## 五、常见问题

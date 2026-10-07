@@ -37,15 +37,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.seatunnel</groupId>
-            <artifactId>seatunnel-hadoop3-3.1.4-uber</artifactId>
-            <version>${seatunnel-framework.version}</version>
-            <classifier>optional</classifier>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.avro</groupId>
-                    <artifactId>avro</artifactId>
-                </exclusion>
-            </exclusions>
+            <artifactId>seatunnel-shade-hadoop3-uber</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.hive</groupId>

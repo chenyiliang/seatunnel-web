@@ -31,9 +31,7 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.seatunnel</groupId>
-            <artifactId>seatunnel-jackson</artifactId>
-            <version>${seatunnel-framework.version}</version>
-            <classifier>optional</classifier>
+            <artifactId>seatunnel-shade-jackson</artifactId>
         </dependency>
     </dependencies>
 </project>
